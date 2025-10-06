@@ -104,7 +104,12 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                </table>';
+                <tr>\
+                    <td class="visible-with-data" id="NAMOBJ" colspan="2"><strong>Nama Kantor</strong><br />'
+                + (feature.properties['NAMOBJ'] !== null ? autolinker.link(String(feature.properties['NAMOBJ']).replace(/'/g, '\'').toLocaleString()) : '')
+                + '</td>\
+                </tr>\
+            </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
             layer.on('popupopen', function (e) {
                 addClassToPopupIfMedia(content, e.popup);
@@ -293,10 +298,12 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="NAMOBJ" colspan="2"><strong>NAMOBJ</strong><br />' + (feature.properties['NAMOBJ'] !== null ? autolinker.link(String(feature.properties['NAMOBJ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
+                                    <tr>\
+                                        <td class="visible-with-data" id="NAMOBJ" colspan="2"><strong>Nama Kantor</strong><br />'
+                                                + (feature.properties['NAMOBJ'] !== null ? autolinker.link(String(feature.properties['NAMOBJ']).replace(/'/g, '\'').toLocaleString()) : '')
+                                                + '</td>\
+                                    </tr>\
+                                </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
             layer.on('popupopen', function (e) {
                 addClassToPopupIfMedia(content, e.popup);
