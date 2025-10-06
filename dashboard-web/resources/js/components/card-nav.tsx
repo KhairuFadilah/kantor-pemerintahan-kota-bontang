@@ -33,7 +33,7 @@ const CardNav: React.FC<CardNavProps> = ({
     logoAlt = 'Logo',
     items,
     className = '',
-    ease = 'power3.out',
+    ease = 'back.out(1.7)',
     baseColor = '#fff',
     menuColor,
     buttonBgColor,

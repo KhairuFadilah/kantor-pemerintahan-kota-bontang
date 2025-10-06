@@ -52,7 +52,7 @@
         }
         var map = L.map('map', {
             zoomControl: false, maxZoom: 28, minZoom: 1
-        }).fitBounds([[0.08334943346402687, 117.37836237438397], [0.2016883696893941, 117.59441098580345]]);
+        }).fitBounds([[0.08334943346402685, 117.37836237438397], [0.2016883696893941, 117.59441098580345]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({ truncate: { length: 30, location: 'smart' } });
@@ -104,12 +104,7 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                <tr>\
-                    <td class="visible-with-data" id="NAMOBJ" colspan="2"><strong>Nama Kantor</strong><br />'
-                + (feature.properties['NAMOBJ'] !== null ? autolinker.link(String(feature.properties['NAMOBJ']).replace(/'/g, '\'').toLocaleString()) : '')
-                + '</td>\
-                </tr>\
-            </table>';
+                </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
             layer.on('popupopen', function (e) {
                 addClassToPopupIfMedia(content, e.popup);
