@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Head } from "@inertiajs/react";
 import CountUp from "react-countup";
+import CardNav, { CardNavItem } from "@/components/card-nav";
 import '../../css/styles.css';
 import { Table, TableHeader, TableRow, TableHead, TableCell, TableBody } from "@/components/ui/table";
 
@@ -9,6 +10,34 @@ type Kantor = {
     nama: string;
     alamat: string;
 };
+
+const items: CardNavItem[] = [
+    {
+        label: "Need Anything?",
+        bgColor: "#111827",
+        textColor: "#ffffff",
+        links: [
+            { label: "Contact Me", href: "https://instagram.com/fadilah_172", ariaLabel: "Contact" },
+        ],
+    },
+    {
+        label: "Fullscreen Map",
+        bgColor: "#0ea5e9",
+        textColor: "#ffffff",
+        links: [
+            { label: "Click Here", href: "https://khairufadilah.github.io/kantor-pemerintahan-kota-bontang/", ariaLabel: "Fullscreen Map" },
+        ],
+    },
+    {
+        label: "YouTube Channel",
+        bgColor: "#ef4444",
+        textColor: "#ffffff",
+        links: [
+            { label: "Click Here", href: "https://www.youtube.com/@UnmulKhairu", ariaLabel: "YouTube Channel" },
+        ],
+    },
+];
+
 
 export default function Dashboard({ kantor }: { kantor: Kantor[] }) {
     const [open, setOpen] = useState(false);
@@ -22,33 +51,17 @@ export default function Dashboard({ kantor }: { kantor: Kantor[] }) {
                 <meta charSet="UTF-8" />
             </Head>
 
-            <nav className="navbar">
-                <div className="logo">
-                    Dashboard Persebaran Kantor Pemerintahan Kota Bontang
-                </div>
-
-                <button
-                    className="menu-toggle"
-                    onClick={() => setOpen((v) => !v)}
-                    aria-label="Toggle menu"
-                >
-                    ☰
-                </button>
-
-                <ul className={`menu ${open ? "block" : "hidden"} md:flex`}>
-                    <li>
-                        <a href="https://khairufadilah.github.io/kantor-pemerintahan-kota-bontang/">
-                            See Fullscreen Map
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/fadilah_172">Contact</a>
-                    </li>
-                </ul>
-            </nav>
+            <CardNav
+                logo="/logo.svg"
+                items={items}
+                baseColor="#ffffff"
+                menuColor="#111827"
+                buttonBgColor="#111827"
+                buttonTextColor="#ffffff"
+            />
 
             {/* Main Content */}
-            <div className="container mx-auto mt-6 grid grid-cols-3 auto-rows-min gap-4 md:grid-cols-2">
+            <div className="container mx-auto mt-6 grid grid-cols-3 auto-rows-min gap-4 md:grid-cols-2 pt-20">
                 {/* Peta */}
                 <div className="p-4 shadow rounded col-span-3 bg-red-300">
                     <h2 className="text-lg text-black font-semibold mb-4">Peta Interaktif</h2>
